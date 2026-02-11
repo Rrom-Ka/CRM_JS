@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="container base">
+            <!-- строка поиска -->
+            <div class="base__search search flex">
+                <a href="index.html" class="serch__link">
+                    <img src="img/logo.svg" alt="logo" class="serch__logo">
+                </a>
+                <input type="text" name="basefilter" id="basefilter" class="base-filter" placeholder="Введите запрос">
+                <ul class="base__serch-list"></ul>
+            </div>
+            <!-- окнов в котором хранится таблица -->
+            <div class="container base__table table">
+                <h1 class="table__caption">Клиенты</h1>
+                <ul class="table__string list-reset flex">
+                    <li id="idClient" class="table__cell table__cell-violet table__cell-rightpadding table__cell-id">
+                        <span class="table__cell-text">ID</span>
+                        <span id="idClientImg" class="table__cell-arrowapp"></span>
+                    </li>
+                    <li id="fioClient" class="table__cell table__cell-bigrightpadding table__cell-fio">
+                        <span class="table__cell-text">Фамилия Имя Отчество</span>
+                        <span id="fioClientImg" class="table__cell-arrowdownfio"></span>
+                    </li>
+                    <li id="startDataClient" class="table__cell table__cell-rightpadding table__cell-startdata">
+                        <span class="table__cell-text table__cell-data">Дата и время создания
+                            <span id="startDataClientImg" class="table__cell-arrowdown table__cell-dataimg"></span>
+                        </span>
+
+                    </li>
+                    <li id="lostDataCorrectClient" class="table__cell table__cell-rightpadding table__cell-lostdata">
+                        <span class="table__cell-text  table__cell-data">Последние изменения
+                            <span id="lostDataCorrectClientImg"
+                                class="table__cell-arrowdown  table__cell-dataimg"></span>
+                        </span>
+                    </li>
+                    <li id="contactsClient" class="table__cell table__cell-contacts">Контакты</li>
+                    <li id="searchDeleteClints" class="table__cell table__cell-searchDeleteClints">Действия</li>
+                </ul>
+                <div class="base__item item" id="baseItem">
+                    <!-- жлюавдяем ч/з JS -->
+                </div>
+                <button type="button" class="btn btn-reset base__addclient" id="baseAddClient">
+                    <svg class="base__btn-svg" width="23" height="16" viewBox="0 0 23 16" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z" />
+                    </svg>
+                    <span class="base__span">Добавить клиента</span>
+                </button>
+            </div>
+            <!-- окно добавления клиента -->
+            <div class="newclient" id="addNewClient">
+                <div class="client__ovelay-visible client__ovelay" id="addNewClientOverlay">
+                    <div class="newclient__box client__box flex" data-target="newclient-1" id="addNewClientConatainer">
+                        <button class="modal__close btn-reset" aria-label="закрыть" id="newClientModalClose">
+                            <span class="modal__close-line"></span>
+                            <span class="modal__close-line"></span>
+                        </button>
+                        <div class="crateclient__topwrap flex">
+                            <h3 class="section-title newclient__title">Новый клиент</h3>
+                            <p class="crateclient__topwrap-id not-visible" id="newClientId">ID: <span
+                                    id="newclientIdspan"></span></p>
+                        </div>
+
+                        <form action="#" class="client__form flex" id="formNewClient" name="newclientformname">
+                            <div class="client__form-surnamewrap client__form-wrap" id="surname-wrap">
+                                <label for="newClientSurname" class="surname__placeholder">Фамилия<span>*</span></label>
+                                <input type="text" name="surname" id="newClientSurname"
+                                    class="client__form-surname form-control surname" required>
+                            </div>
+                            <div class="client__form-namewrap client__form-wrap" id="name-wrap">
+                                <label for="newClientName" class="name__placeholder">Имя<span>*</span></label>
+                                <input type="text" name="name" id="newClientName"
+                                    class="client__form-name form-control name" required>
+                            </div>
+                            <div class="client__form-lastnamewrap client__form-wrap" id="lastname-wrap">
+                                <label for="newClientLastname" class="lastname__placeholder">Отчество</label>
+                                <input type="text" name="lastname" id="newClientLastname"
+                                    class="client__form-lastname form-control lastname">
+                            </div>
+                            <div class="newclient__contacts-wrap" id="newclientContactsWrap">
+                                <button type="button" class="btn btn-reset newclient__btn-addcontact addcontact flex"
+                                    id="newClientBtnaddcontact">
+                                    <svg class="addcontact__svg" xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                                        width="16" height="16" viewBox="0,0,255.99431,255.99431">
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-size="none" style="mix-blend-mode: normal">
+                                            <path class="addcontact__plus" transform="scale(8.53333,8.53333)" d="M27,15c0,6.627 -5.373,12 -12,12c-6.627,0 -12,-5.373 -12,-12c0,-6.627 5.373,-12 12,-12c6.627,0 12,5.373 12,12z" id="strokeMainSVGnew" fill="none" stroke="#9873FF" stroke-width="4" stroke-linejoin="round">
+                                            </path>
+                                            <g class="addcontact__background" transform="scale(8.53333,8.53333)" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter">
+                                                <path
+                                                    d="M15,3c-6.627,0 -12,5.373 -12,12c0,6.627 5.373,12 12,12c6.627,0 12,-5.373 12,-12c0,-6.627 -5.373,-12 -12,-12zM21,16h-5v5c0,0.553 -0.448,1 -1,1c-0.552,0 -1,-0.447 -1,-1v-5h-5c-0.552,0 -1,-0.447 -1,-1c0,-0.553 0.448,-1 1,-1h5v-5c0,-0.553 0.448,-1 1,-1c0.552,0 1,0.447 1,1v5h5c0.552,0 1,0.447 1,1c0,0.553 -0.448,1 -1,1z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="addcontact__span">Добавить контакт</span>
+                                </button>
+                            </div>
+                            <button type="submit" class="btn btn-reset btn-violet"
+                                id="newClientBtnAdd">Сохранить</button>
+                            <button type="button" class="btn btn-reset btn-cancel"
+                                id="newClientBtnCancel">Отмена</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- окно изменения клиента -->
+            <div class="crateclient" id="crateclient">
+                <div class="client__ovelay-visible client__ovelay" id="crateclientovelay">
+                    <div class="crateclient__box client__box flex" data-target="crateclient-1"
+                        id="addCreateClientConatainer">
+                        <button class="modal__close btn-reset" aria-label="закрыть" id="crateClientModalClose">
+                            <span class="modal__close-line"></span>
+                            <span class="modal__close-line"></span>
+                        </button>
+                        <div class="crateclient__topwrap flex">
+                            <h3 class="section-title crateclient__title">Изменить данные</h3>
+                            <p class="crateclient__topwrap-id" id="crateclientId">ID: <span
+                                    id="crateclientIdspan"></span></p>
+                        </div>
+                        <form action="#" class="client__form flex" id="crateclientform" name="crateclientformname">
+                            <div class="client__form-surnamewrap client__form-wrap" id="crateclientSurnameWrap">
+                                <label for="crateclientSurname" class="crateclient__placeholder">Фамилия<span>*</span></label>
+                                <input type="text" name="crateclientsurname" id="crateclientSurname"
+                                    class="crateclient__form-input form-control" required>
+                            </div>
+                            <div class="client__form-namewrap client__form-wrap" id="crateclientNameWrap">
+                                <label for="crateclientName" class="crateclient__placeholder">Имя<span>*</span></label>
+                                <input type="text" name="crateclientname" id="crateclientName"
+                                    class="crateclient__form-input form-control" required>
+                            </div>
+                            <div class="client__form-lastnamewrap client__form-wrap" id="crateclientLastnameWrap">
+                                <label for="crateclientLastname" class="crateclient__placeholder">Отчество</label>
+                                <input type="text" name="lastname" id="crateclientLastname"
+                                    class="crateclient__form-input form-control">
+                            </div>
+                            <div class="crateclient__addcontact addcontact" id="crateclientContactsWrap">
+                                <button type="button" class="btn btn-reset crateclient__btn-addcontact addcontact flex"
+                                    id="crateClientBtnaddcontact">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="16" height="16"
+                                        viewBox="0,0,255.99431,255.99431">
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none"
+                                            stroke-linecap="butt" stroke-miterlimit="10"
+                                            stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                            font-size="none" 
+                                            style="mix-blend-mode: normal">
+                                            <path class="addcontact__plus" transform="scale(8.53333,8.53333)"
+                                                d="M27,15c0,6.627 -5.373,12 -12,12c-6.627,0 -12,-5.373 -12,-12c0,-6.627 5.373,-12 12,-12c6.627,0 12,5.373 12,12z"
+                                                id="strokeMainSVGcrate" fill="none" stroke="#9873FF" stroke-width="4"
+                                                stroke-linejoin="round">
+                                            </path>
+                                            <g class="addcontact__background" transform="scale(8.53333,8.53333)"
+                                                fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter">
+                                                <path
+                                                    d="M15,3c-6.627,0 -12,5.373 -12,12c0,6.627 5.373,12 12,12c6.627,0 12,-5.373 12,-12c0,-6.627 -5.373,-12 -12,-12zM21,16h-5v5c0,0.553 -0.448,1 -1,1c-0.552,0 -1,-0.447 -1,-1v-5h-5c-0.552,0 -1,-0.447 -1,-1c0,-0.553 0.448,-1 1,-1h5v-5c0,-0.553 0.448,-1 1,-1c0.552,0 1,0.447 1,1v5h5c0.552,0 1,0.447 1,1c0,0.553 -0.448,1 -1,1z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="addcontact__span">Добавить контакт</span>
+                                </button>
+                            </div>
+                            <button type="submit" class="btn btn-reset btn-violet selectorcrateClientBtnAdd"
+                                id="crateClientBtnAdd">Сохранить</button>
+                            <button type="button" class="btn btn-reset btn-cancel" id="crateclientdeleteBtn">Удалить
+                                клиента</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--окно подтверждения удаления клиента -->
+            <div class="deleteclient" id="deleteClient">
+                <div class="client__ovelay-visible client__ovelay" id="deleteclientovelay">
+                    <div class="client__box deleteclient__box-delete flex" data-target="deleteclient-1"
+                        id="deleteClientContainer">
+                        <button class="modal__close btn-reset" aria-label="закрыть" id="deleteClientModalClose">
+                            <span class="modal__close-line"></span>
+                            <span class="modal__close-line"></span>
+                        </button>
+                        <h3 class="section-title">Удалить клиента</h3>
+                        <p class="deleteclient__descr">Вы действительно хотите удалить данного клиента?</p>
+                        <button type="submit" class="btn btn-reset btn-violet"
+                            id="deleteClientBtnDelete">Удалить</button>
+                        <button type="button" class="btn btn-reset btn-cancel"
+                            id="deleteClientBtnCancel">Отмена</button>
+                    </div>
+                </div>
+            </div>
+            <!-- прелоадер -->
+            <div class="preloader" id="preloader">
+                <div class="preloader__loader">
+                    <div class="loadingio-spinner-rolling-752vcjt412v">
+                        <div class="ldio-7af2wme4uv3">
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

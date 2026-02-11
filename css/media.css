@@ -1,0 +1,169 @@
+@media (max-width: 992px) {
+    .base-filter {
+        width: 100%;
+    }
+
+    .lostDataCorrectClient {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 28px;
+    }
+
+    .startdataClient {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 24px;
+    }
+
+    .table__string {
+        margin-right: 0;
+    }
+
+    .table__cell-rightpadding {
+        padding-right: 2px;
+        margin-right: 2px;
+    }
+
+    .table__cell-bigrightpadding {
+        margin-right: 3px;
+        width: 305px;
+    }
+
+    .table__cell-contacts {
+        margin-right: 0;
+    }
+
+    .table__cell-lostdata {
+        margin-right: 1px;
+    }
+
+    .table__cell-violet {
+        margin-right: 2px;
+    }
+
+    .list__text {
+        margin-right: 0;
+    }
+
+    .list__id {
+        margin-right: 19px;
+    }
+
+    .btn__edit {
+        margin-right: 0;
+    }
+
+    .list__text-fullName {
+        margin-right: 35px;
+        max-width: 250px;
+        width: 212px;
+        min-width: 181px;
+    }
+
+    .contacts__client {
+        flex-wrap: nowrap;
+        margin-right: 0;
+        min-width: 131px;
+    }
+
+    .item__row {
+        padding: 7px 20px 8px 20px;
+    }
+
+    .base__table {
+        padding-bottom: 100px;
+    }
+
+    .client__box {
+        width: max-content;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .container {
+        padding: 0 5px;
+    }
+
+    .base__search {
+        padding: 8px 10px 4px;
+    }
+
+    .base__table {
+        overflow-x: auto;
+        padding-bottom: 174px;
+    }
+
+    .base-filter {
+        display: none;
+    }
+
+    .serch__link {
+        margin: 0 auto;
+    }
+
+    .serch__logo {
+        width: 24px;
+        height: 24px;
+    }
+
+    .table__caption {
+        margin: 0;
+        margin-bottom: 6px;
+        padding-top: 30px;
+        text-align: left;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: normal;
+    }
+
+    .table__string {
+        margin: 0;
+        padding-bottom: 8px;
+        min-width: 659px;
+    }
+
+    .table__cell-bigrightpadding {
+        margin-right: 6px;
+
+    }
+
+    .client__box {
+        width: 300px;
+    }
+
+    .modal__close {
+        top: 9px;
+        right: 11px;
+    }
+
+    .crateclient__title {
+        margin-left: 15px;
+    }
+
+    .client__form-wrap {
+        margin: 0 15px;
+        width: 270px;
+        margin-bottom: 16px;
+    }
+
+    .addcontact__inputgroup {
+        margin: 17px 15px 25px;
+    }
+
+    .addcontact__inputgroup-input {
+        width: 143px;
+    }
+
+    .newclient .section-title {
+        padding-left: 15px;
+    }
+
+    .newclient .addcontact__icon {
+        margin-right: 4px;
+    }
+
+    .deleteclient__box-delete {
+        padding: 22px 12px 29px 12px;
+    }
+}
